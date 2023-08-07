@@ -73,12 +73,16 @@ while True:
                 print_output(output)
         else:
             print("ERROR: No valid .exe file, try recompiling")
+            
     elif cmd == "CLS":
         os.system("CLS")
+        
     elif cmd == "EXIT":
         exit()
+        
     elif cmd == "COMMAND":
         print(command)
+        
     elif cmd in ["HELP", "?", "help?"]:
         print("""        GCC C/C++ COMPILER FOR VCPKG
 

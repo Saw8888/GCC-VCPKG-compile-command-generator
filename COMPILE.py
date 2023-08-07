@@ -29,7 +29,7 @@ def get_file_paths():
 with open("VCPKG.txt", "r") as f:
             directory = f.readlines()
 
-VCPKG = "gcc -I "+directory[0]+" -L "+directory[1]
+VCPKG = "gcc -I "+directory[0]+" -L "+directory[1]+" "
 
 def build_command(program, include, executable):
     return VCPKG + program + include + "-o" + executable

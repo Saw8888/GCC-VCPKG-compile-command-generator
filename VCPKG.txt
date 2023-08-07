@@ -1,0 +1,2 @@
+//delete this and add your VCPKG include folder's directory
+//delete this and add your VCPKG bin/binaries folder's directory

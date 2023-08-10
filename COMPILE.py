@@ -16,7 +16,7 @@ def get_file_paths():
     executable = input("Executable: ")
 
     if executable == "0":
-        executable = " EXECUTABLES/a.exe "
+        executable = " C:/Users/Acer/Downloads/C/EXECUTABLES/a.exe "
     if include == "0":
         with open("Flags.txt", "r") as f:
             include = f.read()
@@ -29,7 +29,8 @@ def get_file_paths():
 with open("VCPKG.txt", "r") as f:
             directory = f.readlines()
 
-VCPKG = "gcc -I "+directory[0]+" -L "+directory[1]
+directory[0] = directory[0].replace("\n", "")
+VCPKG = "gcc -I "+directory[0]+" -L "+directory[1]+" "
 
 def build_command(program, include, executable):
     return VCPKG + program + include + "-o" + executable

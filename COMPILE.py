@@ -16,7 +16,7 @@ def get_file_paths():
     executable = input("Executable: ")
 
     if executable == "0":
-        executable = " C:/Users/Acer/Downloads/C/EXECUTABLES/a.exe "
+        executable = " EXECUTABLES/a.exe "
     if include == "0":
         with open("Flags.txt", "r") as f:
             include = f.read()
@@ -74,12 +74,16 @@ while True:
                 print_output(output)
         else:
             print("ERROR: No valid .exe file, try recompiling")
+            
     elif cmd == "CLS":
         os.system("CLS")
+        
     elif cmd == "EXIT":
         exit()
+        
     elif cmd == "COMMAND":
         print(command)
+        
     elif cmd in ["HELP", "?", "help?"]:
         print("""        GCC C/C++ COMPILER FOR VCPKG
 

@@ -16,7 +16,7 @@ def get_file_paths():
     executable = input("Executable: ")
 
     if executable == "0":
-        executable = " EXECUTABLES/a.exe "
+        executable = " C:/Users/Acer/Downloads/C/EXECUTABLES/a.exe "
     if include == "0":
         with open("Flags.txt", "r") as f:
             include = f.read()
@@ -52,9 +52,10 @@ def execute_program(executable):
 while True:
     cmd = get_input()
 
-    if cmd in ["EDIT", "CRUN", "COMP", "COMPILE"]:
-        program, include, executable = get_file_paths()
-        command = build_command(program, include, executable)
+    if cmd in ["CRUN", "COMP", "COMPILE"]:
+        if command == "":
+            program, include, executable = get_file_paths()
+            command = build_command(program, include, executable)
         if cmd == "CRUN":
             output = execute_command(command)
             if output == [""]:
@@ -65,6 +66,10 @@ while True:
         elif cmd in ["COMP", "COMPILE"]:
             output = execute_command(command)
             comp_val = True
+            
+    elif cmd == "EDIT":
+        program, include, executable = get_file_paths()
+        command = build_command(program, include, executable)
     elif cmd == "RUN":
         if comp_val:
             output = execute_command(command)
@@ -74,16 +79,12 @@ while True:
                 print_output(output)
         else:
             print("ERROR: No valid .exe file, try recompiling")
-            
     elif cmd == "CLS":
         os.system("CLS")
-        
     elif cmd == "EXIT":
         exit()
-        
     elif cmd == "COMMAND":
         print(command)
-        
     elif cmd in ["HELP", "?", "help?"]:
         print("""        GCC C/C++ COMPILER FOR VCPKG
 
@@ -105,6 +106,11 @@ while True:
         command = Prints the command used to compile
         
         crun = compiles & runs a program
+        
+        Any other command is answered by the windows command prompt.""")
+    else:
+        output = execute_command(cmd)
+        print_output(output)
         
         Any other command is answered by the windows command prompt.""")
     else:
